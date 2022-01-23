@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hotel_booking/widgets/nav_bar.dart';
-import 'package:hotel_booking/widgets/other_places.dart';
-import 'package:hotel_booking/widgets/place_tile.dart';
+
+import '/widgets/widgets.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -36,10 +35,18 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              const Text('Explore', style: TextStyle(fontSize: 35)),
-              const Text(
-                'Santorini',
-                style: TextStyle(fontSize: 35, fontWeight: FontWeight.w700),
+              const Text.rich(
+                TextSpan(
+                  text: 'Explore\n',
+                  style: TextStyle(fontSize: 35),
+                  children: [
+                    TextSpan(
+                      text: 'Santorini',
+                      style:
+                          TextStyle(fontSize: 35, fontWeight: FontWeight.w700),
+                    ),
+                  ],
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -52,7 +59,6 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
               const PlaceTile(),
-              const SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,

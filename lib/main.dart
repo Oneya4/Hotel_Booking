@@ -18,6 +18,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const HomeScreen(),
+      routes: {
+        PlaceDetailScreen.routeName: (ctx) => const PlaceDetailScreen(),
+      },
     );
   }
 }

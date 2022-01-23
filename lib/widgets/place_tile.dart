@@ -12,6 +12,8 @@ class PlaceTile extends StatelessWidget {
       height: dSize.height * .33,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
+        separatorBuilder: (ctx, index) => const SizedBox(width: 10),
+        itemCount: 3,
         itemBuilder: (ctx, index) => InkWell(
           splashColor: Colors.blue[300],
           borderRadius: BorderRadius.circular(25),
@@ -20,7 +22,7 @@ class PlaceTile extends StatelessWidget {
             onTap: () => print('Tapped $index'),
             child: Container(
               width: dSize.width * .56,
-              padding: const EdgeInsets.all(5),
+              padding: const EdgeInsets.fromLTRB(5, 5, 5, 0),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(25),
                 border: Border.all(width: 1, color: const Color(0xFFEEEEEE)),
@@ -39,6 +41,7 @@ class PlaceTile extends StatelessWidget {
                       height: (dSize.height * .26) - 19,
                     ),
                   ),
+                  const SizedBox(height: 5),
                   const Text(
                     'Santorini Island',
                     style: TextStyle(fontWeight: FontWeight.bold),
@@ -52,7 +55,24 @@ class PlaceTile extends StatelessWidget {
                           onPressed: () {},
                           style: TextButton.styleFrom(
                               padding: const EdgeInsets.all(0))),
-                      const Text('\$2,480/night'),
+                      const Text.rich(
+                        TextSpan(
+                          text: '\$2,480/',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            color: Colors.blue,
+                          ),
+                          children: [
+                            TextSpan(
+                              text: 'night',
+                              style: TextStyle(
+                                color: Colors.black87,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   )
                 ],
@@ -60,10 +80,6 @@ class PlaceTile extends StatelessWidget {
             ),
           ),
         ),
-        separatorBuilder: (ctx, index) => const SizedBox(
-          width: 10,
-        ),
-        itemCount: 3,
       ),
     );
   }
