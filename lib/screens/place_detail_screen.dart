@@ -20,14 +20,15 @@ class PlaceDetailScreen extends StatelessWidget {
               height: dSize.height,
               width: dSize.width,
               child: ListView(
-                padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+                padding: const EdgeInsets.fromLTRB(25, 25, 25, 0),
                 children: [
                   SizedBox(
-                    height: dSize.height * .65,
+                    height: dSize.height * .64,
                     child: Column(
                       children: [
                         Container(
-                          height: (dSize.height * .65) - 96,
+                          padding: const EdgeInsets.fromLTRB(22, 27, 25, 0),
+                          height: (dSize.height * .64) - 96,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(25),
                             image: const DecorationImage(
@@ -41,15 +42,25 @@ class PlaceDetailScreen extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              IconButton(
-                                icon: const Icon(Icons.arrow_back,
-                                    color: Colors.white),
-                                onPressed: () {},
+                              _iconBorder(
+                                child: IconButton(
+                                  icon: const Icon(
+                                    Icons.arrow_back,
+                                    color: Colors.white,
+                                    size: 28,
+                                  ),
+                                  onPressed: () => Navigator.of(context).pop(),
+                                ),
                               ),
-                              IconButton(
-                                icon: const Icon(Icons.bookmark,
-                                    color: Colors.white),
-                                onPressed: () {},
+                              _iconBorder(
+                                child: IconButton(
+                                  icon: const Icon(
+                                    Icons.bookmark,
+                                    color: Colors.white,
+                                    size: 28,
+                                  ),
+                                  onPressed: () {},
+                                ),
                               ),
                             ],
                           ),
@@ -57,7 +68,13 @@ class PlaceDetailScreen extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const Text('Santorini Island'),
+                            const Text(
+                              'Santorini Island',
+                              style: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                             TextButton.icon(
                               icon: const Icon(Icons.place, size: 17),
                               label: const Text('Greece'),
@@ -71,8 +88,12 @@ class PlaceDetailScreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             TextButton.icon(
-                              icon: const Icon(Icons.star, size: 17),
-                              label: const Text('4.9(6.8k reviews)'),
+                              icon: const Icon(
+                                Icons.star,
+                                size: 17,
+                                color: Colors.amber,
+                              ),
+                              label: const Text('4.9 (6.8k reviews)'),
                               onPressed: () {},
                               style: TextButton.styleFrom(
                                   padding: const EdgeInsets.all(0)),
@@ -102,6 +123,8 @@ class PlaceDetailScreen extends StatelessWidget {
                   ),
                   Expanded(
                     child: Column(
+                      // mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      // crossAxisAlignment: CrossAxisAlignment.start,
                       children: const [
                         Facilities(),
                         Photos(),
@@ -135,6 +158,21 @@ class PlaceDetailScreen extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  _iconBorder({required Widget child}) {
+    return Container(
+      height: 52,
+      width: 52,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        border: Border.all(
+          width: 1,
+          color: const Color(0xFFE0E0E0),
+        ),
+      ),
+      child: child,
     );
   }
 }

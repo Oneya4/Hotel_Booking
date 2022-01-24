@@ -1,10 +1,10 @@
-# hotel_booking
+# Hotel Booking UI 
 
-A new Flutter project.
+A Flutter project coded by me. Designed by user @rakib.uiux on Instagram
 
-## Getting Started
+## Screenshots
+![](screenshots/frame-1.jpg)			![](screenshots/frame-2.jpg)
 
-This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
 
