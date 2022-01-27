@@ -20,7 +20,7 @@ class NavBar extends StatelessWidget {
         showUnselectedLabels: false,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.map),
+            icon: Icon(Icons.near_me),
             label: 'Places',
           ),
           BottomNavigationBarItem(
